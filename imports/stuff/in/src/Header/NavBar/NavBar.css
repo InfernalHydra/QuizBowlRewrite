@@ -1,0 +1,17 @@
+.NavBar {
+    display: flex;
+    justify-content: flex-start;
+}
+.NavBar > div {
+    margin: 10px;
+}
+.menuButtonfalse {
+    height: 10px;
+    width : 10px;
+    background-color: black;
+}
+.menuButtontrue {
+    height: 10px;
+    width : 10px;
+    background-color: cyan;
+}

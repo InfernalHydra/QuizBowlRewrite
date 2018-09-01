@@ -1,0 +1,17 @@
+.menu-title {
+    color: black;
+    text-align: center;   
+    letter-spacing: 3px;
+    font-size: 1.5em;
+}
+.left-icon { 
+    left: 3%;       
+    position: absolute;
+}
+.right-icon {
+    right: 3%;
+    position: absolute;
+}
+#focus {
+    background-color: aqua;
+}

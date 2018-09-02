@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
 import {SideNavItem, Icon} from 'react-materialize';
+import {Session} from 'meteor/session';
 
 class Menu extends Component {
     
     constructor (props) {
         super(props);        
-        this.state = {focus:''};
+        this.state = {focus:Session.get('View').view};
     }
 
     links = ['Users', 'Teams', 'Matches']
 
     handleMenuClick = (name, e) => {
+        Session.set('View', {view: name});
         this.setState({focus:name});            
     }
     render() {
@@ -19,7 +21,13 @@ class Menu extends Component {
             if (this.state.focus === val) {
                 id = 'focus'
             }
-            return <SideNavItem id={id} key={index.toString()+id} onClick={() => this.handleMenuClick(val)}>{val}</SideNavItem>
+            return (
+                <SideNavItem id={id} 
+                    key={index.toString()+id} 
+                    onClick={() => this.handleMenuClick(val)}>
+                    {val}
+                </SideNavItem>
+            )
         })
         return (
             <div>

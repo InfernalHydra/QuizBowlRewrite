@@ -15,7 +15,7 @@ class TopRank extends Component {
                     </Col>  
                     <Col s={12} m ={4} l={4} xl={4}>
                         <UserModal trigger={<div><UserSmallPanel /></div>}/>
-                    </Col>   
+                    </Col>     
                 </Row>
             </Col>
         )

@@ -16,8 +16,8 @@ class App extends Component {
           <Switch>
             <Route exact link = '/' component = {UserMainContainer}/>
             <Route link = '/user' component = {UserMainContainer}/>
-            <Route link = '/teams' component ={<div>constructing</div>}/>
-            <Route link = '/matches' component ={<div>constructing</div>}/>
+            <Route link = '/teams' component ={UserMainContainer}/>
+            <Route link = '/matches' component ={UserMainContainer}/>
           </Switch>
           </div>
         </Router>

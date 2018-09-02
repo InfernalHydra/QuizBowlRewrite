@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import UserPicture from './UserPicture';
 import {Card} from 'react-materialize';
 import PropTypes from 'prop-types';
+
 class UserSmallPanel extends Component {    
     render() {
         return (

@@ -3,14 +3,18 @@ import UserPicture from './UserPicture';
 import {Card} from 'react-materialize';
 import PropTypes from 'prop-types';
 
-class UserBigPanel extends Component
-{
+class UserBigPanel extends Component {
     render()
     {
         return(
-        <Card style = {{width : this.props.size, height : this.props.height}} horizontal header = {<UserPicture pic = {this.props.pic}/>}>
-            <span>{this.props.name}</span>
-        </Card>
+            <Card horizontal style={{width:this.props.size}} header={
+                <div style={{width: '100px'}}>
+                    <div className='user-name-title'>{this.props.name}</div>
+                    <UserPicture pic={this.props.pic}/>
+                    <div className='user-rank'>{this.props.rank}</div>
+                </div>}>
+                Some Stuff
+            </Card>     
         );
     }
 }

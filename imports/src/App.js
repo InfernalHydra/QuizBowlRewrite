@@ -1,35 +1,29 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar/NavBar';
 import UserMainContainer from './User/UserMainContainer';
-import {Session} from 'meteor/session';
-import {withTracker} from 'meteor/react-meteor-data';
+import {Switch, Route, Router} from 'react-router';
+import createBrowserHistory from 'history/createBrowserHistory';
+
+
 class App extends Component {
+  browserHistory = createBrowserHistory();
   render() {
-    let node;    
-    switch (this.props.view) {
-      case 'Users': 
-      node = <UserMainContainer />
-      break;
-      case 'Teams':
-      node = <div>Constructing</div>
-      break;
-      case 'Matches':
-      node = <div>M Constructing</div>
-      break;
-    }
     return (
       <div>
-        <NavBar />
-        {node}
+        <Router history = {this.browserHistory}>
+          <div>
+          <NavBar />
+          <Switch>
+            <Route exact link = '/' component = {UserMainContainer}/>
+            <Route link = '/user' component = {UserMainContainer}/>
+            <Route link = '/teams' component ={<div>constructing</div>}/>
+            <Route link = '/matches' component ={<div>constructing</div>}/>
+          </Switch>
+          </div>
+        </Router>
       </div>
     );
   }
 }
 
-export default withTracker(()=>{
-  const view = Session.get('View').view;
-  //console.log(view);
-  return {
-    view: view
-  }
-})(App);
+export default App;

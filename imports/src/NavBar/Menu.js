@@ -1,39 +1,38 @@
-import React, {Component} from 'react';
+import React, {Component} from '../../../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/react';
 import {SideNavItem, Icon} from 'react-materialize';
-import {Session} from 'meteor/session';
+import {NavLink} from '../../../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/react-router-dom';
 
 class Menu extends Component {
     
     constructor (props) {
         super(props);        
-        this.state = {focus:Session.get('View').view};
+        this.state = {focus:'users'};
+        //console.log(this.props.links);
     }
 
-    links = ['Users', 'Teams', 'Matches']
 
     handleMenuClick = (name, e) => {
-        Session.set('View', {view: name});
         this.setState({focus:name});            
     }
+    
     render() {
-        let linkNodes = this.links.map((val,index)=> {
+        //console.log(this.props.links);
+        let linkNodes = this.props.links.map((val,index)=> {
             let id;
             if (this.state.focus === val) {
                 id = 'focus'
             }
-            return (
-                <SideNavItem id={id} 
-                    key={index.toString()+id} 
-                    onClick={() => this.handleMenuClick(val)}>
-                    {val}
-                </SideNavItem>
-            )
+            return <NavLink id={id} key={index.toString()+id} to = '/'>
+                        <SideNavItem onClick={() => this.handleMenuClick(val)}>{val}</SideNavItem>
+                    </NavLink>;
         })
+
+
         return (
             <div>
                 <div className='menu-title'>Menu</div>
                 <SideNavItem divider></SideNavItem>
-                {linkNodes}
+                    {linkNodes}
                 <SideNavItem divider></SideNavItem>
                 <div>Made by Daniel Hahn</div>
                 <div>and Ryan Chhong</div>

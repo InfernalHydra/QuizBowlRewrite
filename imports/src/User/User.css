@@ -1,0 +1,41 @@
+.user-container{
+    margin-top: 20px;
+}
+.top-rank{
+    position: relative;
+    background-color: red;
+    height: 40vh;
+}
+.search-user{
+    background-color: blue;
+    height: 40vh;
+}
+@media only screen and (min-width: 1000px) {
+    .top-rank{
+        height: 80vh;
+    }
+    .search-user{
+        height: 80vh;
+    }
+}
+.user-image {
+    border-radius: 50%;
+    margin: 0 25%;
+    object-fit: contain;
+    width: 50%;    
+}
+.user-name-title {
+    padding: 5px 0;
+    line-height: 1.5em;
+    text-align: center;
+}
+.user-rank {
+    line-height: 1.5em;
+    text-align: center;
+}
+.top-rank-row{
+    top: 50%;
+    margin: 0;
+    position: absolute;               /* 2 */
+    transform: translate(0, -50%)    /* 4 */
+}

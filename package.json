@@ -12,6 +12,7 @@
     "react": "^16.4.2",
     "react-addons-pure-render-mixin": "^15.6.2",
     "react-dom": "^16.4.2",
+    "react-image": "^1.4.1",
     "react-materialize": "^2.4.5",
     "react-meteor-data": "^0.2.11",
     "react-redux": "^5.0.7",

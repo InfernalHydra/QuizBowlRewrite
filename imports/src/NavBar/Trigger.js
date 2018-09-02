@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class Trigger extends  Component{
     render () {
         return (
-            <SideNav trigger={this.props.trigger} options={{edge:this.props.pos}}>
+            <SideNav trigger={this.props.trigger} options={{edge:this.props.pos, closeOnClick:true}}>
                 {this.props.items}
             </SideNav>
         )

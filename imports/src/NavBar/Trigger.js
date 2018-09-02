@@ -1,6 +1,6 @@
-import React, {Component} from '../../../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/react';
+import React, {Component} from 'react';
 import {SideNav, SideNavItem} from 'react-materialize';
-import PropTypes from '../../../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/prop-types';
+import PropTypes from 'prop-types';
 
 class Trigger extends  Component{
     render () {

@@ -16,13 +16,13 @@ class Menu extends Component {
     }
     
     render() {
-        //console.log(this.props.links);
+        console.log(this.props.links);
         let linkNodes = this.props.links.map((val,index)=> {
-            let id;
+            let id ='none';
             if (this.state.focus === val) {
                 id = 'focus'
             }
-            return <NavLink id={id} key={index.toString()+id} to = '/'>
+            return <NavLink id={id} key={index.toString()+id} to = {'/'+val}>
                         <SideNavItem onClick={() => this.handleMenuClick(val)}>{val}</SideNavItem>
                     </NavLink>;
         })

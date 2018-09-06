@@ -15,7 +15,6 @@ class SearchBar extends Component {
     handleChange(e) {
         Session.set('search', {query: e.target.value});
         console.log(e.target.value);
-        this.setState({"search" : e.target.value})
     }
     render () {
         return (

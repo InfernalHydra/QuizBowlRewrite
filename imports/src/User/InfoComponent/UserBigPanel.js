@@ -2,19 +2,24 @@ import React, {Component} from 'react';
 import UserPicture from './UserPicture';
 import {Card} from 'react-materialize';
 import PropTypes from 'prop-types';
-
+import {Session} from 'meteor/session';
+import {withTracker} from 'meteor/react-meteor-data';
 class UserBigPanel extends Component {
+    
     render()
     {
         return(
-            <Card horizontal style={{width:this.props.size}} header={
-                <div style={{width: '100px'}}>
-                    <div className='user-name-title'>{this.props.name}</div>
-                    <UserPicture pic={this.props.pic}/>
-                    <div className='user-rank'>{this.props.rank}</div>
-                </div>}>
-                Some Stuff
-            </Card>     
+            <div>
+                <Card horizontal style={{width:this.props.size, height:this.props.height}} header={
+                    <div style={{width: 'calc('+this.props.height+'px '+ '- 10%)'}}>
+                        <div className='user-name-title'>{this.props.name}</div>
+                        <UserPicture pic={this.props.pic}/>
+                        <div className='user-rank'>{this.props.rank}</div>
+                    </div>}>
+                    Some Stuff
+                </Card>     
+            </div>
+            
         );
     }
 }
@@ -24,7 +29,6 @@ UserBigPanel.defaultProps = {
     name: 'Name',
     rank: 0,
     size: '100%',
-    height: '30%'
 }
 
 UserBigPanel.propTypes = {
@@ -32,6 +36,12 @@ UserBigPanel.propTypes = {
     name: PropTypes.string,
     rank: PropTypes.number,
     size: PropTypes.string,
+    height: PropTypes.number
 }
 
-export default UserBigPanel;
+export default withTracker(()=>{
+    const size = Session.get('topRankSize');
+    return {
+        height: size
+    }
+})(UserBigPanel);

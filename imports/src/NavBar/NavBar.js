@@ -16,7 +16,7 @@ class NavBar extends Component {
             console.log("OPEN ADMIN PANEL");
         }
     }
-    render () {
+    render () {        
         return (
             <nav>
                 <div className="nav-wrapper">

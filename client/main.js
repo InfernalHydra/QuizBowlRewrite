@@ -16,7 +16,7 @@ class Routing extends React.Component {
     }
 }
 Meteor.startup(() => {
-    Session.setDefault('View', {view: 'Users'});
     Session.setDefault('Search', {query: ''});
+    Session.setDefault('topRankSize', 100);
     ReactDOM.render(<Routing />, document.getElementById('root'));
 })
